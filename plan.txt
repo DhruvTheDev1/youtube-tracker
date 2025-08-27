@@ -1,0 +1,31 @@
+Youtube-Tracker
+- Displayes live subscribers
+- Displays other data e.g. view count, videos, etc
+
+-  Backend - Java/SpringBoot + Thymleaf for front-end
+- Takes in a channel ID - displays data on the view
+- E.g. Mr Beast channelID - UCX6OQ3DkcsbYNE6H8uQQuVA
+- It will then display the data
+
+- Using Youtube V3 Data API
+- Response Example:
+
+  "items": [
+    {
+      "kind": "youtube#channel",
+      "etag": "5o8XVC5gt6z2T8Y-4d42E4ISSDQ",
+      "id": "UCX6OQ3DkcsbYNE6H8uQQuVA",
+      "statistics": {
+        "viewCount": "94270069701",
+        "subscriberCount": "425000000",
+        "hiddenSubscriberCount": false,
+        "videoCount": "896"
+      }
+    }
+  ]
+
+- Can also then expand to use Youtube Search API to find channel ID based on name
+- Instead of entering channel ID which is impracticle - it can display different channels for users to pick or select best fitting one
+
+- Able to also expand using caching later e.g. Redis or in memory-built
+- E.g. subscriber count is cached and if 10,000 users want the same channels data - it will use the cached results instead of doing 10,000 more API calls

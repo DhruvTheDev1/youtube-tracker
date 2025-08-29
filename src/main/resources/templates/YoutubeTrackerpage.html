@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Youtube-Tracker</title>
+</head>
+
+<body>
+  <h1>Youtube-Tracker</h1>
+
+  <form action="/Youtube-Tracker" method="post">
+    <p>Enter Channel ID:</p>
+    <input type="text" name="channelID" placeholder="Enter ChannelID" required>
+    <button type="submit">Get Stats</button>
+  </form>
+
+  <div th:if="${error}">
+    <p th:text=" ${error}"></p>
+  </div>
+
+
+  <div th:if="${stats}">
+    <h2>Channel Stats:</h2>
+    <p><strong>Channel ID:</strong> <span th:text="${stats.channelID}"></span></p>
+    <p><strong>Subscribers:</strong> <span th:text="${stats.subscriberCount}"></span></p>
+    <p><strong>Views:</strong> <span th:text="${stats.viewCount}"></span></p>
+    <p><strong>Videos:</strong> <span th:text="${stats.videoCount}"></span></p>
+  </div>
+
+</body>
+
+</html>

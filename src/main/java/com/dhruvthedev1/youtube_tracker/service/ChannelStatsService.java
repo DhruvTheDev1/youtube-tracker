@@ -13,18 +13,17 @@ public class ChannelStatsService {
   private String apiKey;
 
   public ChannelStats getChannelStats(String channelID) {
-    try {
-      // get channel stats - YouTube Data API
-      String urlString = "https://www.googleapis.com/youtube/v3/channels?part=statistics&id=" + channelID + "&key="
-          + apiKey;
+    // get channel stats - YouTube Data API
+    String urlString = "https://www.googleapis.com/youtube/v3/channels?part=statistics&id=" + channelID + "&key="
+        + apiKey;
 
-      // calls Youtube API
-      // maps JSON into YoutubeAPIResponse model
-      RestTemplate restTemplate = new RestTemplate();
-      YoutubeAPIResponse response = restTemplate.getForObject(urlString, YoutubeAPIResponse.class);
+    // calls Youtube API
+    // maps JSON into YoutubeAPIResponse model
+    RestTemplate restTemplate = new RestTemplate();
+    YoutubeAPIResponse response = restTemplate.getForObject(urlString, YoutubeAPIResponse.class);
 
-      // if incorrect channel id
-      if (response.getItems() != null) {
+    // if incorrect channel id
+    if (response.getItems() != null) {
       // items is an array json data
       // takes first item
       YoutubeAPIResponse.Item item = response.getItems().get(0);
@@ -33,14 +32,8 @@ public class ChannelStatsService {
       // maps the json into the ChannelStats model
       return new ChannelStats(channelID, statistics.getSubscriberCount(), statistics.getViewCount(),
           statistics.getVideoCount());
-      } else {
-          throw new IllegalArgumentException("Channel not found: " + channelID);
-      }
-
-    } catch (Exception e) {
-      e.printStackTrace();
+    } else {
+      throw new IllegalArgumentException("Channel not found: " + channelID);
     }
-
-    return null;
   }
 }

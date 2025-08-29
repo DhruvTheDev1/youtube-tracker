@@ -23,6 +23,8 @@ public class ChannelStatsService {
       RestTemplate restTemplate = new RestTemplate();
       YoutubeAPIResponse response = restTemplate.getForObject(urlString, YoutubeAPIResponse.class);
 
+      // if incorrect channel id
+      if (response.getItems() != null) {
       // items is an array json data
       // takes first item
       YoutubeAPIResponse.Item item = response.getItems().get(0);
@@ -31,6 +33,9 @@ public class ChannelStatsService {
       // maps the json into the ChannelStats model
       return new ChannelStats(channelID, statistics.getSubscriberCount(), statistics.getViewCount(),
           statistics.getVideoCount());
+      } else {
+          throw new IllegalArgumentException("Channel not found: " + channelID);
+      }
 
     } catch (Exception e) {
       e.printStackTrace();

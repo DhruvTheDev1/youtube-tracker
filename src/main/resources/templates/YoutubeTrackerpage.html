@@ -24,11 +24,12 @@
   <div th:if="${stats}">
     <h2>Channel Stats:</h2>
     <p><strong>Channel ID:</strong> <span th:text="${stats.channelID}"></span></p>
-    <p><strong>Subscribers:</strong> <span th:text="${stats.subscriberCount}"></span></p>
-    <p><strong>Views:</strong> <span th:text="${stats.viewCount}"></span></p>
-    <p><strong>Videos:</strong> <span th:text="${stats.videoCount}"></span></p>
+    <p><strong>Subscribers:</strong> <span th:text="${#numbers.formatDecimal(stats.subscriberCount, 0, 'COMMA', 0, 'POINT')}"></span></p>
+    <p><strong>Views:</strong> <span th:text="${#numbers.formatDecimal(stats.viewCount, 0, 'COMMA', 0, 'POINT')}"></span></p>
+    <p><strong>Videos:</strong> <span th:text="${#numbers.formatDecimal(stats.videoCount, 0, 'COMMA', 0, 'POINT')}"></span></p>
   </div>
 
 </body>
 
 </html>
+

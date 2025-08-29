@@ -15,18 +15,27 @@ public class ChannelStatsService {
   public ChannelStats getChannelStats(String channelID) {
     try {
       // get channel stats - YouTube Data API
-      String urlString = ;
+      String urlString = "https://www.googleapis.com/youtube/v3/channels?part=statistics&id=" + channelID + "&key="
+          + apiKey;
 
+      // calls Youtube API
+      // maps JSON into YoutubeAPIResponse model
       RestTemplate restTemplate = new RestTemplate();
       YoutubeAPIResponse response = restTemplate.getForObject(urlString, YoutubeAPIResponse.class);
-      
 
+      // items is an array json data
+      // takes first item
+      YoutubeAPIResponse.Item item = response.getItems().get(0);
+      YoutubeAPIResponse.Statistics statistics = item.getStatistics(); // retrieves the nested statitic objects
 
+      // maps the json into the ChannelStats model
+      return new ChannelStats(channelID, statistics.getSubscriberCount(), statistics.getViewCount(),
+          statistics.getVideoCount());
 
-      
     } catch (Exception e) {
-      // TODO: handle exception
+      e.printStackTrace();
     }
-  }
 
+    return null;
+  }
 }

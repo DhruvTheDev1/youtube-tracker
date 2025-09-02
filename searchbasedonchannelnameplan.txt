@@ -1,0 +1,35 @@
+So far:
+Enter Channel ID on local host 8080:
+
+Channel Stats:
+Channel ID: UCX6OQ3DkcsbYNE6H8uQQuVA
+
+Subscribers: 430,000,000
+Views: 93,874,727,227
+Videos: 898
+
+- Implementing feature that allows to use the search API based on channel name and also ID too if they like
+- Instead of entering channel ID which is impracticle - it will display channels for hte user to pick
+
+
+User enters Input in form -> is input channel ID or name
+If channelID -> calls existing /youtube-tracker endpoint
+
+If channelName -> calls YTSearchAPI -> 
+JSON Response:
+items[]:
+- title
+- channelID
+- thumbnail
+- vice versa...
+
+-> Display list of channels
+[thumbnail] channelName
+            channelID
+
+[thumbnail2] channelName2
+            channelID2
+...
+
+-> User selects a channel -> sends selected channelID to /youtube-tracker endpoint
+-> displays results

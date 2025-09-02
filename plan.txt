@@ -24,6 +24,5 @@ Youtube-Tracker
     }
   ]
 
-
 - Able to also expand using caching later e.g. Redis or in memory-built
 - E.g. subscriber count is cached and if 10,000 users want the same channels data - it will use the cached results instead of doing 10,000 more API calls

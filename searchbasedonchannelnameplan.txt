@@ -9,7 +9,7 @@ Views: 93,874,727,227
 Videos: 898
 
 - Implementing feature that allows to use the search API based on channel name and also ID too if they like
-- Instead of entering channel ID which is impracticle - it will display channels for hte user to pick
+- Instead of entering channel ID which is impracticle - it will display channels for the user to pick
 
 
 User enters Input in form -> is input channel ID or name

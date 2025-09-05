@@ -6,8 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 /* 
-// service for when user enters a youtube channel name
-// returns list of matching channels with id, name and thumbnail
+ service for when user enters a youtube channel name
+ returns list of matching channels with id, name and thumbnail
  does not change existing stats fetching logic as frontend will call /yt-tracker endpoint
 */
 import org.springframework.web.client.RestTemplate;

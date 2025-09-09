@@ -1,7 +1,5 @@
 package com.dhruvthedev1.youtube_tracker.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,10 +26,14 @@ public class YoutubeStatsController {
 
     try {
       ChannelResponse response = youtubeService.getChannelData(userInput);
+      // if channel ID
+      // stats - stats relating to that channel ID
       if (response.getChannelStats() != null) {
         model.addAttribute("stats", response.getChannelStats());
+        // if channel name
+        // searchResults - list of channels
       } else if (response.getSearchResults() != null) {
-        model.addAttribute("searchResults", response);
+        model.addAttribute("searchResults", response.getSearchResults()); 
       }
     } catch (Exception e) {
       model.addAttribute("error", e.getMessage());

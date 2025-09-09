@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" th:href="@{/css/styles.css}">
   <title>Youtube-Tracker</title>
 </head>
 
@@ -12,7 +13,7 @@
 
   <form action="/Youtube-Tracker" method="post">
     <p>Enter Channel ID:</p>
-    <input type="text" name="channelID" placeholder="Enter ChannelID" required>
+    <input type="text" name="userInput" placeholder="Enter ChannelID or Channel Name" required>
     <button type="submit">Get Stats</button>
   </form>
 
@@ -24,12 +25,34 @@
   <div th:if="${stats}">
     <h2>Channel Stats:</h2>
     <p><strong>Channel ID:</strong> <span th:text="${stats.channelID}"></span></p>
-    <p><strong>Subscribers:</strong> <span th:text="${#numbers.formatDecimal(stats.subscriberCount, 0, 'COMMA', 0, 'POINT')}"></span></p>
-    <p><strong>Views:</strong> <span th:text="${#numbers.formatDecimal(stats.viewCount, 0, 'COMMA', 0, 'POINT')}"></span></p>
-    <p><strong>Videos:</strong> <span th:text="${#numbers.formatDecimal(stats.videoCount, 0, 'COMMA', 0, 'POINT')}"></span></p>
+    <p><strong>Subscribers:</strong> <span
+        th:text="${#numbers.formatDecimal(stats.subscriberCount, 0, 'COMMA', 0, 'POINT')}"></span></p>
+    <p><strong>Views:</strong> <span
+        th:text="${#numbers.formatDecimal(stats.viewCount, 0, 'COMMA', 0, 'POINT')}"></span></p>
+    <p><strong>Videos:</strong> <span
+        th:text="${#numbers.formatDecimal(stats.videoCount, 0, 'COMMA', 0, 'POINT')}"></span></p>
   </div>
 
+<div th:if="${searchResults}">
+  <th:block th:each="channel : ${searchResults}">
+    <form th:action="@{/Youtube-Tracker}" method="post" style="display: inline;">
+      <input type="hidden" name="userInput" th:value="${channel.channelID}" />
+      <div class="clickable-channel" th:data-channel-id="${channel.channelID}" style="cursor: pointer;">
+        <img th:src="${channel.thumbnail}" />
+        <span style="color: red" th:text="${channel.channelID}"></span>
+      </div>
+    </form>
+  </th:block>
+</div>
+
+<script>
+  document.querySelectorAll('.clickable-channel').forEach(function(element) {
+    element.onclick = function() {
+      this.closest('form').submit();
+    };
+  });
+</script>
+
+
 </body>
-
 </html>
-

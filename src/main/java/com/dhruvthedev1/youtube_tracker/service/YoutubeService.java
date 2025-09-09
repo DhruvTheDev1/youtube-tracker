@@ -17,22 +17,19 @@ public class YoutubeService {
   @Autowired
   private ChannelSearchService channelSearchService;
 
+  // checks if input is a channelID or channel name
   public ChannelResponse getChannelData(String userInput) throws Exception {
-    if (isChannelID(userInput)) {
+    if (isChannelID(userInput)) { // if channel ID
       ChannelStats channelStats = channelStatsService.getChannelStats(userInput);
       return new ChannelResponse(channelStats);
-    } else {
+    } else { // if channel name
       List<SearchResponse> searchResults = channelSearchService.getChannelName(userInput);
       return new ChannelResponse(searchResults);
     }
   }
 
   private boolean isChannelID(String userInput) {
-    if (userInput.startsWith("UC")) {
-      return true;
-    } else {
-      return false;
-    }
+    return userInput.startsWith("UC");
   }
 
 }

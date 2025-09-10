@@ -56,7 +56,7 @@ public class ChannelStats {
 
   @Override
   public String toString() {
-    return "Channel ID: " + channelID + "\n" +
+    return "Channel ID: " + this.channelID + "\n" +
         "Subscribers: " + String.format("%,d", this.subscriberCount) + "\n" +
         "Views: " + String.format("%,d", this.viewCount) + "\n" +
         "Videos: " + this.videoCount;

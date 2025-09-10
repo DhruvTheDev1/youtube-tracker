@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" th:href="@{/css/styles.css}">
+<link rel="stylesheet" th:href="@{/styles.css}">
   <title>Youtube-Tracker</title>
 </head>
 
@@ -33,26 +33,27 @@
         th:text="${#numbers.formatDecimal(stats.videoCount, 0, 'COMMA', 0, 'POINT')}"></span></p>
   </div>
 
-<div th:if="${searchResults}">
-  <th:block th:each="channel : ${searchResults}">
-    <form th:action="@{/Youtube-Tracker}" method="post" style="display: inline;">
-      <input type="hidden" name="userInput" th:value="${channel.channelID}" />
-      <div class="clickable-channel" th:data-channel-id="${channel.channelID}" style="cursor: pointer;">
-        <img th:src="${channel.thumbnail}" />
-        <span style="color: red" th:text="${channel.channelID}"></span>
-      </div>
-    </form>
-  </th:block>
-</div>
+  <div th:if="${searchResults}">
+    <th:block th:each="channel : ${searchResults}">
+      <form th:action="@{/Youtube-Tracker}" method="post" style="display: inline;">
+        <input type="hidden" name="userInput" th:value="${channel.channelID}" />
+        <div class="clickable-channel" th:data-channel-id="${channel.channelID}" style="cursor: pointer;">
+          <img th:src="${channel.thumbnail}" />
+          <span style="color: red" th:text="${channel.channelName}"></span>
+        </div>
+      </form>
+    </th:block>
+  </div>
 
-<script>
-  document.querySelectorAll('.clickable-channel').forEach(function(element) {
-    element.onclick = function() {
-      this.closest('form').submit();
-    };
-  });
-</script>
+  <script>
+    document.querySelectorAll('.clickable-channel').forEach(function (element) {
+      element.onclick = function () {
+        this.closest('form').submit();
+      };
+    });
+  </script>
 
 
 </body>
+
 </html>

@@ -2,10 +2,6 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f9;
   color: #333;
-  margin: 0;
-  padding: 0;
-  height: 100vh; /* Full viewport height to center vertically */
-
 }
 
 h1 {
@@ -19,7 +15,6 @@ form {
   padding: 20px;
   background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
 
@@ -45,20 +40,8 @@ button {
 }
 
 .stats-container {
-  width: 100%;
   max-width: 600px;
-  margin-top: 30px;
+  margin: 30px auto;
   padding: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
-}
-
-.stats-container p {
-  margin: 10px 0; 
-}
-
-.stats-container span {
-  font-weight: bold;
 }

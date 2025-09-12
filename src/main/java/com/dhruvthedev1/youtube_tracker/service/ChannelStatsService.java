@@ -1,12 +1,10 @@
 package com.dhruvthedev1.youtube_tracker.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.dhruvthedev1.youtube_tracker.model.ChannelStats;
-import com.dhruvthedev1.youtube_tracker.model.SearchResponse;
 import com.dhruvthedev1.youtube_tracker.model.YoutubeAPIResponse;
 
 @Service

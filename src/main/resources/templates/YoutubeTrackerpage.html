@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" th:href="@{/styles.css}">
+  <link rel="stylesheet" th:href="@{/styles.css}">
   <title>Youtube-Tracker</title>
 </head>
 
@@ -22,7 +22,7 @@
   </div>
 
 
-  <div th:if="${stats}">
+  <div class="stats-container" th:if="${stats}">
     <h2>Channel Stats:</h2>
     <p><strong>Channel ID:</strong> <span th:text="${stats.channelID}"></span></p>
     <p><strong>Subscribers:</strong> <span
@@ -32,6 +32,7 @@
     <p><strong>Videos:</strong> <span
         th:text="${#numbers.formatDecimal(stats.videoCount, 0, 'COMMA', 0, 'POINT')}"></span></p>
   </div>
+
 
   <div th:if="${searchResults}">
     <th:block th:each="channel : ${searchResults}">

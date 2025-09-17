@@ -12,6 +12,7 @@
 - **Interactive Search Results**
   - Displays Youtube Channels with thumnbails to select
   - Based on the Youtube Data API
+> In the service folder there is YoutubeService.java class that is a single unified endpoint that handles both Channel ID and channel Name and contains logic to check if the input is a channelID or name.
  
 ## Technologies Used
 - Java, Spring-Boot for the backend
@@ -26,3 +27,13 @@
   > https://developers.google.com/youtube/v3/getting-started
 - Build and run the application: **mvn spring-boot:run**
 - Navigate to: **http://localhost:8080/Youtube-Tracker**
+
+<img width="2011" height="1009" alt="image" src="https://github.com/user-attachments/assets/213f7b88-8358-416c-8c48-438e75b00138" />
+
+
+<img width="2000" height="1008" alt="image" src="https://github.com/user-attachments/assets/5e6c6184-a4d1-4513-9cc9-1895a4a51ca6" />
+
+
+<img width="2000" height="1012" alt="image" src="https://github.com/user-attachments/assets/5881e56f-1f89-4fa4-9093-6a7fb0bad75b" />
+
+

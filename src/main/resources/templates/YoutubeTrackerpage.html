@@ -17,7 +17,7 @@
     <button type="submit">Get Stats</button>
   </form>
 
-  <div th:if="${error}">
+  <div class="error-message" th:if="${error}">
     <p th:text=" ${error}"></p>
   </div>
 
@@ -34,13 +34,13 @@
   </div>
 
 
-  <div th:if="${searchResults}">
+  <div class="search-results-container" th:if="${searchResults}">
     <th:block th:each="channel : ${searchResults}">
       <form th:action="@{/Youtube-Tracker}" method="post" style="display: inline;">
         <input type="hidden" name="userInput" th:value="${channel.channelID}" />
-        <div class="clickable-channel" th:data-channel-id="${channel.channelID}" style="cursor: pointer;">
+        <div class="clickable-channel" th:data-channel-id="${channel.channelID}">
           <img th:src="${channel.thumbnail}" />
-          <span style="color: red" th:text="${channel.channelName}"></span>
+          <span th:text="${channel.channelName}"></span>
         </div>
       </form>
     </th:block>
@@ -54,7 +54,5 @@
     });
   </script>
 
-
 </body>
-
 </html>

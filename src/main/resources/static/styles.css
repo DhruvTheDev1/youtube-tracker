@@ -45,3 +45,35 @@ button {
   padding: 20px;
   text-align: center;
 }
+
+.error-message{
+  text-align: center;
+}
+
+.search-results-container{
+display: flex;
+justify-content: center;
+gap: 20px;
+margin: 20px auto;
+max-width: 900px;
+}
+
+.clickable-channel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  width: 150px;
+}
+
+.clickable-channel img {
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.clickable-channel span {
+  color: red;
+  font-size: 14px;
+}
+
